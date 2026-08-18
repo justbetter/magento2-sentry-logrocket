@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="JustBetter\SentryLogrocket\Block\LogrocketScript" before="-" after="sentry.head.additional"
+                   template="JustBetter_SentryLogrocket::script/logrocket.phtml" name="sentry.logrocket.head.additional">
+                <arguments>
+                    <argument name="placement" xsi:type="string">head.additional</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="before.body.end">
+            <block class="JustBetter\SentryLogrocket\Block\LogrocketScript" before="-" after="sentry.before.body.end"
+                   template="JustBetter_SentryLogrocket::script/logrocket.phtml" name="sentry.logrocket.before.body.end">
+                <arguments>
+                    <argument name="placement" xsi:type="string">before.body.end</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sentry" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Sentry configuration</label>
+            <tab>justbetter</tab>
+            <resource>JustBetter_Sentry::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                <label>Sentry general config</label>
+                <field id="use_logrocket" translate="label" type="select" sortOrder="40" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>Use LogRocket</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_script_tag">1</field>
+                    </depends>
+                </field>
+                <field id="logrocket_identify" translate="label" type="select" sortOrder="50" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>LogRocket include user data</label>
+                    <tooltip>Include user ID, name and email to identify logged in users in LogRocket</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enable_script_tag">1</field>
+                        <field id="use_logrocket">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="environment" translate="label comment" sortOrder="20" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                <field id="logrocket_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1" canRestore="1">
+                    <label>Logrocket Key</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

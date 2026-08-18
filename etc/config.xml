@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sentry>
+            <general>
+                <use_logrocket>0</use_logrocket>
+                <logrocket_identify>0</logrocket_identify>
+            </general>
+            <environment>
+                <logrocket_key/>
+            </environment>
+        </sentry>
+    </default>
+</config>
