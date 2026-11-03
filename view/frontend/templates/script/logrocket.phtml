@@ -1,0 +1,28 @@
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
+/** @var \JustBetter\SentryLogrocket\Block\LogrocketScript $block */
+if (!$block->canUseScriptTag()) {
+    return;
+}
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', ['src' => 'https://cdn.lr-ingest.io/LogRocket.min.js', 'crossorigin' => 'anonymous']) ?>
+<?= /* @noEscape */ $secureRenderer->renderTag(
+    'script',
+    [],
+    "window.LogRocket && window.LogRocket.init('" . /* @noEscape */ trim($block->getLogrocketKey()) . "');",
+    false
+); ?>
+<?= /* @noEscape */ $secureRenderer->renderTag(
+    'script',
+    [],
+    'LogRocket.getSessionURL(sessionURL => {
+        Sentry.configureScope(scope => {
+            scope.setExtra("sessionURL", sessionURL);
+        });
+    });',
+    false
+); ?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $block->getLayout()->createBlock(\JustBetter\SentryLogrocket\Block\LogrocketScript::class)
+    ->setTemplate('JustBetter_SentryLogrocket::script/logrocket_init.phtml')
+    ->toHtml(), false); ?>
