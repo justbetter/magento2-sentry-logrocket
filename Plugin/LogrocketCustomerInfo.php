@@ -8,7 +8,7 @@ use Magento\Customer\Model\Session;
 
 class LogrocketCustomerInfo
 {
-    /*
+    /**
      * @param CurrentCustomer $currentCustomer
      * @param Session         $customerSession
      */
@@ -19,7 +19,12 @@ class LogrocketCustomerInfo
     }
 
     /**
-     * @return array{fullname: string, firstname: string, websiteId: int, email: string, fullname: string}
+     * Add customer email and full name to the section data.
+     *
+     * @param Customer            $subject
+     * @param array<string,mixed> $result
+     *
+     * @return array<string,mixed>
      */
     public function afterGetSectionData(Customer $subject, array $result): array
     {
